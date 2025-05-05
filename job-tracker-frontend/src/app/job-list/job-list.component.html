@@ -1,0 +1,73 @@
+<button (click)="navigateToAddJob()">Add New Job</button>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobApplication" [formGroup]="editForm">
+        <td>{{ job.id }}</td>
+        <td>
+          <span *ngIf="JobIdForEdit !==job.id">{{ job.job_title }}</span>
+          <input *ngIf="JobIdForEdit ===job.id"type="text" 
+          formControlName="job_title">
+        </td>
+
+        <td>
+          <span *ngIf="JobIdForEdit !==job.id">{{ job.company_name }}</span>
+          <input *ngIf="JobIdForEdit ===job.id"type="text" 
+          formControlName="company_name">
+        </td>
+
+        <td>
+          <span *ngIf="JobIdForEdit !==job.id">{{ job.application_date }}</span>
+          <input *ngIf="JobIdForEdit ===job.id"type="date" 
+          formControlName="application_date">
+        </td>
+
+        <td>
+          <span *ngIf="JobIdForEdit !==job.id">{{ job.status }}</span>
+          <select *ngIf="JobIdForEdit ===job.id" formControlName="status">
+            <option value="APPLIED">Applied</option>
+            <option value="INTERVIEW">Interview</option>
+            <option value="OFFER">Offer</option>
+            <option value="REJECTED">Rejected</option>
+          </select>
+        </td>
+
+        <td>
+          <span *ngIf="JobIdForEdit !== job.id">{{ job.notes }}</span>
+          <textarea *ngIf="JobIdForEdit === job.id" 
+                    formControlName="notes"
+                    rows="2"></textarea>
+        </td>
+
+        <!-- <td>{{ job.job_title }}</td> -->
+        <!-- <td>{{ job.company_name }}</td>
+        <td>{{ job.application_date }}</td>
+        <td>{{ job.status }}</td>
+        <td>{{ job.notes || '-' }}</td> -->
+        <td>
+          <div *ngIf="JobIdForEdit === job.id; else viewMode">
+            <button (click)="saveEdit()">Save</button>
+            <button (click)="cancelEdit()">Cancel</button>
+          </div>
+          <ng-template #viewMode>
+            <button (click)="editJob(job)">Edit</button>
+            <button (click)="deleteJob(job.id)">Delete</button>
+          </ng-template>
+          
+          <!-- Original button -->
+          <!-- <button (click)="editJob(job)">Edit</button> -->
+          <!-- <button (click)="deleteJob(job.id)">Delete</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>

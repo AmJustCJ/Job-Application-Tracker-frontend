@@ -1,0 +1,68 @@
+<form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+    <!-- Job Title -->
+    <div>
+      <label>Job Title</label>
+      <input formControlName="job_title" required>
+      <div *ngIf="applyForm.get('job_title')?.invalid && applyForm.get('job_title')?.touched">
+        Job title is required.
+      </div>
+    </div>
+  
+    <!-- Company Name -->
+    <div>
+      <label>Company Name</label>
+      <input formControlName="company_name" required>
+      <div *ngIf="applyForm.get('company_name')?.invalid && applyForm.get('company_name')?.touched">
+        Company name is required.
+      </div>
+    </div>
+  
+    <!-- Application Date -->
+    <div>
+      <label>Application Date</label>
+      <input type="date" formControlName="application_date" required>
+    </div>
+  
+    <!-- Status -->
+    <div>
+      <label>Status</label>
+      <select formControlName="status">
+        <option value="APPLIED">Applied</option>
+        <option value="INTERVIEW">Interview</option>
+        <option value="REJECTED">Rejected</option>
+        <option value="OFFER">Offer</option>
+      </select>
+    </div>
+  
+    <!-- Notes -->
+    <div>
+      <label>Notes</label>
+      <textarea formControlName="notes"></textarea>
+    </div>
+  
+    <!-- Buttons -->
+    <button type="submit" [disabled]="applyForm.invalid">Submit</button>
+    <button type="button" (click)="BackToList()">Cancel</button>
+  </form>
+
+
+<!-- <h1>job-form works!</h1>
+<form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+    <label for="job_title">Job Title</label>
+    <input id="job_title" title="text" formControlName="job_title">
+
+    <label for="company_name">Job Title</label>
+    <input id="company_name" title="text" formControlName="company_name">
+
+    <label for="application_date">Job Title</label>
+    <input id="application_date" title="text" formControlName="application_date">
+
+    <label for="status">Job Title</label>
+    <input id="status" title="text" formControlName="status">
+
+    <label for="notes">Job Title</label>
+    <input id="notes" title="text" formControlName="notes">
+
+    <button type="submit">Submit</button>
+</form>
+<button (click)="BackToList()">Back to List</button> -->
