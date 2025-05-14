@@ -1,50 +1,56 @@
-<form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
-    <!-- Job Title -->
-    <div>
-      <label>Job Title</label>
-      <input formControlName="job_title" required>
-      <div *ngIf="applyForm.get('job_title')?.invalid && applyForm.get('job_title')?.touched">
-        Job title is required.
-      </div>
+ <body>
+  <div class="foreground">
+    <div class="Title">
+      <h3>Add a new job</h3>
+    </div>  
+    <form class="formWrap" [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+        <!-- Job Title -->
+        <div>
+          <label>Job Title</label>
+          <input formControlName="job_title" required>
+          <div *ngIf="applyForm.get('job_title')?.invalid && applyForm.get('job_title')?.touched">
+            Job title is required.
+          </div>
+        </div>
+      
+        <!-- Company Name -->
+        <div>
+          <label>Company Name</label>
+          <input formControlName="company_name" required>
+          <div *ngIf="applyForm.get('company_name')?.invalid && applyForm.get('company_name')?.touched">
+            Company name is required.
+          </div>
+        </div>
+      
+        <!-- Application Date -->
+        <div>
+          <label>Application Date</label>
+          <input type="date" formControlName="application_date" required>
+        </div>
+      
+        <!-- Status -->
+        <div>
+          <label>Status</label>
+          <select formControlName="status">
+            <option value="APPLIED">Applied</option>
+            <option value="INTERVIEW">Interview</option>
+            <option value="REJECTED">Rejected</option>
+            <option value="OFFER">Offer</option>
+          </select>
+        </div>
+      
+        <!-- Notes -->
+        <div>
+          <label>Notes</label>
+          <textarea formControlName="notes"></textarea>
+        </div>
+      
+        <!-- Buttons -->
+        <button type="submit" [disabled]="applyForm.invalid">Submit</button>
+        <button type="button" (click)="BackToList()">Cancel</button>
+      </form>
     </div>
-  
-    <!-- Company Name -->
-    <div>
-      <label>Company Name</label>
-      <input formControlName="company_name" required>
-      <div *ngIf="applyForm.get('company_name')?.invalid && applyForm.get('company_name')?.touched">
-        Company name is required.
-      </div>
-    </div>
-  
-    <!-- Application Date -->
-    <div>
-      <label>Application Date</label>
-      <input type="date" formControlName="application_date" required>
-    </div>
-  
-    <!-- Status -->
-    <div>
-      <label>Status</label>
-      <select formControlName="status">
-        <option value="APPLIED">Applied</option>
-        <option value="INTERVIEW">Interview</option>
-        <option value="REJECTED">Rejected</option>
-        <option value="OFFER">Offer</option>
-      </select>
-    </div>
-  
-    <!-- Notes -->
-    <div>
-      <label>Notes</label>
-      <textarea formControlName="notes"></textarea>
-    </div>
-  
-    <!-- Buttons -->
-    <button type="submit" [disabled]="applyForm.invalid">Submit</button>
-    <button type="button" (click)="BackToList()">Cancel</button>
-  </form>
-
+</body> 
 
 <!-- <h1>job-form works!</h1>
 <form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
