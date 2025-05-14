@@ -1,0 +1,53 @@
+body {
+    font-family: Lato, sans-serif;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: rgb(84, 82, 82);
+    font-size: 0.9rem;
+    background-color: rgb(214, 26, 214);
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 20px 20px 20px 5px; 
+    background-color: white;
+    text-align: center;
+    margin-bottom: 700px;
+}
+
+th {
+    background-color: black;
+    padding: 0.75rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: white;
+}
+
+td {
+    padding: 1rem 2rem;
+}
+
+tr:nth-child(even) {
+    background-color: lightcyan;
+}
+
+.btn {
+    border-radius: 40px;
+    border: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-bottom: 20px;
+    
+}
+
+.btn:hover {
+    background: rgb(228, 225, 225);
+}
+
