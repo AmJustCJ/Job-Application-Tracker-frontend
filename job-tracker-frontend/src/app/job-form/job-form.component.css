@@ -1,0 +1,33 @@
+body {
+    font-family: Lato, sans-serif;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: rgb(84, 82, 82);
+    font-size: 0.9rem;
+    background-color: rgb(214, 26, 214);
+}
+
+.foreground{
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    box-shadow: 20px 20px 20px 5px; 
+    background-color: white;
+    text-align: left;
+    margin-bottom: 700px;
+    margin-top: 300px;
+}
+
+.Title {
+    margin-top: 0;
+    text-align: center;
+    font-size: large;
+    color: black;
+}
+
+.formWrap {
+    color: black;
+    padding: 50;
+}
